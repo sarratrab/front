@@ -1,0 +1,86 @@
+<div class="navbar-container">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="../../assets/logo.png" alt="GARAGÉNIE Logo" class="navbar-logo">
+    </div>
+    <div class="navbar-middle">
+      <input type="text" placeholder="Rechercher" class="navbar-search">
+    </div>
+    <div class="navbar-right">
+      <img alt="" src="../../assets/a2.png" height="30" width="30" />
+      <img alt="" src="../../assets/a3.png" height="30" width="30" />
+      <img alt="" src="../../assets/a4.png" height="30" width="30" />
+      <img alt="" src="../../assets/a1.png" height="30" width="30" />
+    </div>
+  </nav>
+</div>
+
+<div class="background">
+  <br><br><br>
+
+
+  <div class="container">
+    <div class="sidebar">
+      <app-sidebaradmin></app-sidebaradmin>
+    </div>
+
+
+    <div class="users-container">
+      <div class="header">
+        <h2>UTILISATEURS</h2>
+        <div class="input-group">
+          <input type="text" [(ngModel)]="searchTerm" (input)="filterUsers()" placeholder="Rechercher">
+          <button (click)="toggleForm()">Ajouter</button>
+        </div>
+      </div>
+    
+      <app-ajoutadmin *ngIf="showForm"></app-ajoutadmin>
+      <!-- Ajoutez l'élément de modification -->
+<app-modifadmin *ngIf="selectedUser" [user]="selectedUser" (update)="updateUser($event)"></app-modifadmin>
+    
+      <div class="table-container">
+        <div *ngFor="let role of userRoles">
+          <h3>{{ role.label }}</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>PRENOM</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Numéro</th>
+                <th>Adresse</th>
+                <th>Rôle</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of filterUsersByRole(role.key)">
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.numero }}</td>
+                <td>{{ user.adresse }}</td>
+                <td>{{ user.role }}</td>
+                <td><button (click)="editUser(user)">Modifier</button></td>
+                <td><button (click)="removeUser(user)">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+   
+  
+
+ 
+    
+  </div>
+</div>

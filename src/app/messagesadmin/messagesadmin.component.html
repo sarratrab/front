@@ -1,0 +1,57 @@
+<div class="navbar-container">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="../../assets/logo.png" alt="GARAGÉNIE Logo" class="navbar-logo">
+      </div>
+      <div class="navbar-middle">
+        <input type="text" placeholder="Rechercher" class="navbar-search">
+      </div>
+      <div class="navbar-right">
+        <img alt="" src="../../assets/a2.png"  height="30" width="30" />
+        <img alt="" src="../../assets/a3.png" height="30" width="30" />
+        <img alt="" src="../../assets/a4.png"  height="30" width="30" />
+        <img alt="" src="../../assets/a1.png" height="30" width="30" />
+      </div>
+    </nav>
+</div>
+
+<div class="background">   
+    <br> <br> <br>
+ <div class="container">
+    <div class="sidebar">
+        <app-sidebaradmin></app-sidebaradmin>
+    </div>
+
+  <div class="card">
+
+    <h2>MESSAGES</h2>
+    <div class="header">
+        <input type="text" placeholder="Rechercher" [(ngModel)]="searchTerm" (keyup)="filterForms()">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>prénom</th>
+                <th>numéro</th>
+                <th>email</th>
+                <th>messages</th>
+                <th>Suppression</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let msg of messages">
+                <td>{{ msg.prenom }}</td>
+                <td>{{ msg.nom }}</td>
+                <td>{{ msg.telephone }}</td>
+                <td>{{ msg.email }}</td>
+                <td>{{ msg.message}}</td>
+              <td>
+                <button (click)="delete(msg._id)" >Supprimer</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+ </div>

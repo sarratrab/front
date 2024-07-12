@@ -1,0 +1,49 @@
+/* Style pour la sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #3f51b5;
+    height: calc(100vh - 50px); /* Ajustez la hauteur en fonction de la hauteur de la navbar */
+    position: fixed;
+    top: 100px; /* Ajustez cette valeur pour descendre la sidebar encore plus bas */
+    left: 0;
+    z-index: 1000;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar-header h3 {
+    color: #ecf0f1;
+    font-size: 24px;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-menu li {
+    padding: 15px 20px;
+    text-align: left;
+  }
+  
+  .sidebar-menu li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+  }
+  
+  .sidebar-menu li a:hover {
+    background-color: #007bff;
+    border-radius: 4px;
+  }
+  
+  .sidebar-menu li.active a {
+    background-color: #1abc9c;
+    border-radius: 4px;
+  }

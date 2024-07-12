@@ -1,0 +1,62 @@
+<div class="navbar-container">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="../../assets/logo.png" alt="GARAGÉNIE Logo" class="navbar-logo">
+    </div>
+    <div class="navbar-middle">
+      <input type="text" placeholder="Rechercher" class="navbar-search">
+    </div>
+    <div class="navbar-right">
+      <img alt="" src="../../assets/a2.png" height="30" width="30" />
+      <img alt="" src="../../assets/a3.png" height="30" width="30" />
+      <img alt="" src="../../assets/a4.png" height="30" width="30" />
+      <img alt="" src="../../assets/a1.png" height="30" width="30" />
+    </div>
+  </nav>
+</div>
+
+<div class="background">
+  <br><br><br>
+
+  <div class="container">
+    <div class="sidebar">
+      <app-sidebaradmin></app-sidebaradmin>
+    </div>
+
+    <div class="main-content">
+      <div class="promo-container">
+        <div class="promo-header">
+          <h2>Ajouter une Promotion</h2>
+          <input type="number" [(ngModel)]="newPromotion.price" placeholder="Prix" required>
+          <input type="text" [(ngModel)]="newPromotion.description" placeholder="Description" required>
+          <button (click)="addPromotion()">Ajouter</button>
+        </div>
+      
+        <div class="promo-list">
+          <h3>Liste des Promotions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let promotion of promotions">
+                <td>{{ promotion.price }}</td>
+                <td>{{ promotion.description }}</td>
+                <td><button (click)="deletePromotion(promotion._id)">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+   
+      
+      
+    </div>
+  </div>
+
